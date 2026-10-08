@@ -1,0 +1,10 @@
+{
+  "name": "maimai DX Song Finder",
+  "short_name": "mai 找歌",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#14121c",
+  "theme_color": "#14121c",
+  "icons": [{ "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

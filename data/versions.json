@@ -1,0 +1,33 @@
+{
+  "_readme": "Version folders. 'code' is the first version code of that release in SEGA's data. 'intlLatest' is the newest version the International cabinets run. When International moves to a new version, add it here and bump intlLatest; the data script refuses to publish until you do.",
+  "intlLatest": 26500,
+  "versions": [
+    { "code": 10000, "name": "maimai" },
+    { "code": 11000, "name": "maimai PLUS" },
+    { "code": 12000, "name": "GreeN" },
+    { "code": 13000, "name": "GreeN PLUS" },
+    { "code": 14000, "name": "ORANGE" },
+    { "code": 15000, "name": "ORANGE PLUS" },
+    { "code": 16000, "name": "PiNK" },
+    { "code": 17000, "name": "PiNK PLUS" },
+    { "code": 18000, "name": "MURASAKi" },
+    { "code": 18500, "name": "MURASAKi PLUS" },
+    { "code": 19000, "name": "MiLK" },
+    { "code": 19500, "name": "MiLK PLUS" },
+    { "code": 19900, "name": "FiNALE" },
+    { "code": 20000, "name": "maimai DX" },
+    { "code": 20500, "name": "maimai DX PLUS" },
+    { "code": 21000, "name": "Splash" },
+    { "code": 21500, "name": "Splash PLUS" },
+    { "code": 22000, "name": "UNiVERSE" },
+    { "code": 22500, "name": "UNiVERSE PLUS" },
+    { "code": 23000, "name": "FESTiVAL" },
+    { "code": 23500, "name": "FESTiVAL PLUS" },
+    { "code": 24000, "name": "BUDDiES" },
+    { "code": 24500, "name": "BUDDiES PLUS" },
+    { "code": 25000, "name": "PRiSM" },
+    { "code": 25500, "name": "PRiSM PLUS" },
+    { "code": 26000, "name": "CiRCLE" },
+    { "code": 26500, "name": "CiRCLE PLUS" }
+  ]
+}

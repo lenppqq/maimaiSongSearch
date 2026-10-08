@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>maimai DX 找歌</title>
+  <meta name="description" content="maimai DX International: find which folder a song is in and how many presses or swipes it takes to reach it.">
+  <meta name="theme-color" content="#14121c">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1 id="app-title">maimai DX 找歌</h1>
+      <p id="app-sub" class="sub"></p>
+    </div>
+    <button id="lang" class="lang" type="button">EN</button>
+  </header>
+
+  <main>
+    <section class="panel settings">
+      <h2 id="lbl-game" class="panel-title"></h2>
+      <div class="grid">
+        <label><span id="lbl-category"></span><select id="set-category"></select></label>
+        <label><span id="lbl-sort"></span><select id="set-sort"></select></label>
+        <label><span id="lbl-diff"></span><select id="set-diff"></select></label>
+        <label><span id="lbl-chart"></span><select id="set-chart"></select></label>
+      </div>
+    </section>
+
+    <section class="search">
+      <input id="q" type="search" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="search">
+      <div id="current" class="current" hidden></div>
+      <ul id="results" class="results"></ul>
+    </section>
+
+    <section id="route" class="panel route" aria-live="polite"></section>
+
+    <details class="panel assumptions">
+      <summary id="lbl-assumptions"></summary>
+      <label class="row"><span id="lbl-spp"></span><input id="set-spp" type="number" min="0" max="200" inputmode="numeric"></label>
+      <p id="hint-spp" class="hint"></p>
+      <label class="row"><span id="lbl-swipe-dir"></span><select id="set-swipe-dir"></select></label>
+      <label class="row check"><input id="set-wrap" type="checkbox"><span id="lbl-wrap"></span></label>
+      <label class="row check"><input id="set-random" type="checkbox"><span id="lbl-random"></span></label>
+      <label class="row"><span id="lbl-version-order"></span><select id="set-version-order"></select></label>
+    </details>
+  </main>
+
+  <footer>
+    <p id="data-info"></p>
+    <p id="sources"></p>
+    <p><a href="https://github.com/lenppqq/maimaiSongSearch">GitHub</a></p>
+  </footer>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

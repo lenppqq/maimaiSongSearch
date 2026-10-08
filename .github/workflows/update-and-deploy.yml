@@ -1,0 +1,68 @@
+name: Update song data and deploy
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "17 6 * * *" # daily, 06:17 UTC
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Test data script
+        run: python -m unittest discover -s scripts -p 'test_*.py' -v
+
+      - name: Fetch and validate song data
+        run: python scripts/fetch_data.py --commit-msg "$RUNNER_TEMP/data-commit.txt"
+
+      - name: Test engine and search against the new data
+        run: node tests/engine.test.mjs
+
+      - name: Commit data if it changed
+        run: |
+          if [ -n "$(git status --porcelain site/data)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add site/data
+            git commit -F "$RUNNER_TEMP/data-commit.txt"
+            git push
+          else
+            echo "Song data unchanged."
+          fi
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

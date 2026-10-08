@@ -1,0 +1,6 @@
+{
+  "_readme": "Manual corrections applied after every fetch, so automatic updates never overwrite them. Song ids are the 'id' field in site/data/songs.json. 'exclude': ids to drop. 'patch': id -> fields to replace; 'sort' uses SEGA's official numbering before re-indexing, so a decimal like 12.5 places a song between official 12 and 13. 'add': complete song records for songs missing from both sources.",
+  "exclude": [],
+  "patch": {},
+  "add": []
+}
